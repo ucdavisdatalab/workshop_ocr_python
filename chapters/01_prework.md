@@ -19,6 +19,10 @@ Brief paragraph
 
 ### ImageMagick
 
+#### scaled up if text height too small
+
+#### high pass filter before binarization
+
 #### rotation
 
 #### cropping
