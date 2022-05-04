@@ -51,10 +51,10 @@ While Tesseract is a command line tool, we will be running it through a Python
 wrapper called 'pytesseract' for this workshop. This means that we will be
 writing Python code to run Tesseract behind the scenes. A reason for running
 Tesseract through python, instead of the command line, is it can make for more
-reproducible workflows. This is because all of the steps will be self
-documented within your source code as well as its easier to connect the OCR
-step with the other steps in the process - preprocessing, cleaning, which will
-also be done in python.
+reproducible workflows. This way all of the steps will be self documented
+within your source code as well as its easier to connect the OCR step with the
+other steps in the process - preprocessing, cleaning, which will also be done
+in python.
 
 
 ## Software Dependencies
