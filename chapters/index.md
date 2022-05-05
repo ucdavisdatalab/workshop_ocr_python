@@ -60,30 +60,72 @@ in python.
 ## Software Dependencies
 
 Necessary software:
-- tesseract
-- leptonica
-- python3
+- [tesseract](https://github.com/tesseract-ocr/tesseract)
+- [python](https://www.python.org/) Need version >=3.7
 
 Useful software:
-- imagemagick
-- pdftotext
-- ghostscript
-- pdfreader
-- imageviewer
+- [imagemagick](https://imagemagick.org/index.php): Free and open source tool for converting and editing images
+- [pdftotext](https://www.xpdfreader.com/about.html): A tool for extracting text layers from pdfs
+- [XnView](https://www.xnview.com/en/): an image and pdf viewer such as xnview
 
-#### Windows
+## Tesseract
 
-#### MacOS
+Versions overview. Generally want the most recent.
+Cases where you may want a previous version - API compatability. E.G duncantl Rtessearct uses 4.0
 
-#### Linux
+
+### Windows
+
+Use the installers prepared by UB-Mannheim
+https://github.com/UB-Mannheim/tesseract/wiki
+
+Download and run the appropraite exe (probably 64 bit)
+
+### MacOS
+
+#### install homebrew
+https://brew.sh/
+
+Run install script:
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+#### install tesseract
+```
+brew install tesseract
+```
+
+#### adding language data
+
+all:
+```
+brew install tesseract-lang
+```
+
+### Linux
+
+Use your package manager to install tesseract
+
+## Tesseract Language Data
+
+Optional
 
 ## Python Environment
+
+This workshop expects a python version 3.6+ because it uses pytesseract.
+There are many ways of installing and configuring python.
+Choose what is best for you.
+
+### with conda
 https://docs.conda.io/en/latest/miniconda.html
 
-
 pytessearct
-opencv
+pillow
+pdftotext
 https://github.com/emcconville/wand?
+
+### with pip
 
 ## Files
 

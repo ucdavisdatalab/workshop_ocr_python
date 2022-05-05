@@ -1,6 +1,11 @@
 Prework
 ===============
 
+When will it fail. Consider complex layouts
+Consider handwriting
+Consider old scripts
+Consider poor document quality 
+
 Description
 
 ## Working with PDFs
@@ -8,6 +13,7 @@ Description
 Brief paragraph
 
 ### checking for text layers
+pdftotext python package
 
 ### converting to image formats
 
