@@ -1,0 +1,559 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overview &#8212; Optical Character Recognition (OCR) and Working with Messy Text Data</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Prework" href="01_prework.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Optical Character Recognition (OCR) and Working with Messy Text Data</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
+   Overview
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_prework.html">
+   1. Prework
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_pytesseract.html">
+   2. OCR with pytesseract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_text-cleaning.html">
+   3. Text Cleaning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_workflow.html">
+   4. Workflow for Text Mining
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapters/index.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ucdavisdatalab/workshop_ocr_python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ucdavisdatalab/workshop_ocr_python/issues/new?title=Issue%20on%20page%20%2Fchapters/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#software-dependencies">
+   Software Dependencies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tesseract">
+   Tesseract
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#windows">
+     Windows
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#macos">
+     MacOS
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-homebrew">
+       install homebrew
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-tesseract">
+       install tesseract
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linux">
+     Linux
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tesseract-language-data">
+   Tesseract Language Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-environment">
+   Python Environment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#with-conda">
+     with conda
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#with-pip">
+     with pip
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#files">
+   Files
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Overview</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#software-dependencies">
+   Software Dependencies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tesseract">
+   Tesseract
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#windows">
+     Windows
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#macos">
+     MacOS
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-homebrew">
+       install homebrew
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-tesseract">
+       install tesseract
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linux">
+     Linux
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tesseract-language-data">
+   Tesseract Language Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-environment">
+   Python Environment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#with-conda">
+     with conda
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#with-pip">
+     with pip
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#files">
+   Files
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives</p>
+<ul class="simple">
+<li><p>TODO</p></li>
+</ul>
+</div>
+<p>This workshop is designed to introduce the steps involved in performing Optical
+Character Recognition with Python. Included in this workshop is a description
+of common image preprocessing strategies for improving the quality of the OCR
+output, a walk-through of tesseract usage through pytesseract, strategies for
+quantifying OCR quality, ways to clean the text outputs, and a discussion on
+ways of developing an effective and reproducible workflow for performing OCR on
+a text corpus. The workshop will focus on images that contain English language
+text, that has been printed, that is to say, not handwritten. Additionally, it
+is focused on the tesseract open source library. This is an introductory
+workshop which means its focus is on common ocr problems, and not on developing
+strategies for training ocr, complex heuristics for document segmenting, nor is
+it a deep dive on computer vision. This workshop also assumes that the data is
+in a digitized form, albeit as images and not machine encoded text, and
+therefore does not cover strategies for scanning/imaging physical documents.
+Overall, learners should walk away with a sense of how to use tesseract ocr,
+and a comprehension of some of the steps involved in a potential research
+workflow that involves tesseract which includes image pre-processing and text
+cleaning.</p>
+<p>OCR allows us to convert images of text documents into machine encoded text.
+There are many reasons to use OCR for research. Often times the most relevant
+documents to your research query are not available in a digitized form. Or,
+there does exist a scanned version of the document online, but that digital
+document doesn’t contain a machine-encoded text layer. There are even cases
+where the document has a text layer, but OCR is still useful. This can occur if
+the quality of the text layer is itself poor - perhaps it was generated with an
+older version of the ocr software, perhaps it was manually catalogued but there
+are many errors. Another use for OCR is for analysis that relies on spatial
+data of the text on the page, that is lost in purely machine-encoded text
+layer. For example, if you want to extract all the footnotes from an academic
+paper, you may use OCR and leverage the positional data OCR returns.</p>
+<p>For this workshop we will be using Tesseract. Tesseract is free and open
+source. It is developed by Google and has many independent contributors. The
+most recent release, version 5.1.0 was released on March 1, 2022. Tesseract is
+a command line tool as well as an OCR library. Tesseract can run on Windows,
+MacOS, and Linux.  In addition to be free, there are many important advantages
+to using Tesseract over other proprietary OCR tools. Tesseract is extremely
+popular which makes it relatively easy to find resources online, such as guides
+and stack overflow posts. In addition, there are many third party tools that
+interface with Tesseract including GUIs.</p>
+<p>While Tesseract is a command line tool, we will be running it through a Python
+wrapper called ‘pytesseract’ for this workshop. This means that we will be
+writing Python code to run Tesseract behind the scenes. A reason for running
+Tesseract through python, instead of the command line, is it can make for more
+reproducible workflows. This way all of the steps will be self documented
+within your source code as well as its easier to connect the OCR step with the
+other steps in the process - preprocessing, cleaning, which will also be done
+in python.</p>
+<div class="section" id="software-dependencies">
+<h2>Software Dependencies<a class="headerlink" href="#software-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Necessary software:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/tesseract-ocr/tesseract">tesseract</a></p></li>
+<li><p><a class="reference external" href="https://www.python.org/">python</a> Need version &gt;=3.7</p></li>
+</ul>
+<p>Useful software:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">jupyter-lab</a>: Web based development environment</p></li>
+<li><p><a class="reference external" href="https://imagemagick.org/index.php">imagemagick</a>: Free and open source tool for converting and editing images</p></li>
+<li><p><a class="reference external" href="https://www.xpdfreader.com/about.html">pdftotext</a>: A tool for extracting text layers from pdfs</p></li>
+<li><p><a class="reference external" href="https://www.xnview.com/en/">XnView</a>: an image and pdf viewer such as xnview</p></li>
+</ul>
+</div>
+<div class="section" id="tesseract">
+<h2>Tesseract<a class="headerlink" href="#tesseract" title="Permalink to this headline">¶</a></h2>
+<p>Versions overview. Generally want the most recent.
+Cases where you may want a previous version - API compatability. E.G duncantl Rtessearct uses 4.0</p>
+<div class="section" id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
+<p>Use the installers prepared by UB-Mannheim
+<a class="reference external" href="https://github.com/UB-Mannheim/tesseract/wiki">https://github.com/UB-Mannheim/tesseract/wiki</a></p>
+<p>Download and run the appropraite exe (probably 64 bit)</p>
+</div>
+<div class="section" id="macos">
+<h3>MacOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h3>
+<p>The simplest way to install Tesseract and its own software dependencies on MacOS
+is by using <em>homebrew</em>.</p>
+<div class="section" id="install-homebrew">
+<h4>install homebrew<a class="headerlink" href="#install-homebrew" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://brew.sh/">https://brew.sh/</a></p>
+</div>
+<div class="section" id="install-tesseract">
+<h4>install tesseract<a class="headerlink" href="#install-tesseract" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">tesseract</span>
+</pre></div>
+</div>
+<p>Optionally, you can install language data:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">tesseract</span><span class="o">-</span><span class="n">lang</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
+<p>Use your package manager to install tesseract</p>
+</div>
+</div>
+<div class="section" id="tesseract-language-data">
+<h2>Tesseract Language Data<a class="headerlink" href="#tesseract-language-data" title="Permalink to this headline">¶</a></h2>
+<p>Optional</p>
+</div>
+<div class="section" id="python-environment">
+<h2>Python Environment<a class="headerlink" href="#python-environment" title="Permalink to this headline">¶</a></h2>
+<p>This workshop expects a python version 3.6+ because it uses pytesseract.
+There are many ways of installing and configuring python.
+Choose what is best for you.</p>
+<div class="section" id="with-conda">
+<h3>with conda<a class="headerlink" href="#with-conda" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a></p>
+<p>pytessearct
+pillow
+pdftotext
+<a class="reference external" href="https://github.com/emcconville/wand">https://github.com/emcconville/wand</a>?</p>
+</div>
+<div class="section" id="with-pip">
+<h3>with pip<a class="headerlink" href="#with-pip" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='right-next' id="next-link" href="01_prework.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Prework</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Arthur Koehl<br/>
+    
+      <div class="extra_footer">
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg"> 
+</a>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
