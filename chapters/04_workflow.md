@@ -1,9 +1,7 @@
-Workflow
-========
+Workflow for Text Mining
+========================
 
-Brief Description
-
-## Look at Data
+## Looking at the documents
 
 ## Prework
 

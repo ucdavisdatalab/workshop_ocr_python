@@ -64,6 +64,7 @@ Necessary software:
 - [python](https://www.python.org/) Need version >=3.7
 
 Useful software:
+- [jupyter-lab](https://jupyterlab.readthedocs.io/en/stable/): Web based development environment
 - [imagemagick](https://imagemagick.org/index.php): Free and open source tool for converting and editing images
 - [pdftotext](https://www.xpdfreader.com/about.html): A tool for extracting text layers from pdfs
 - [XnView](https://www.xnview.com/en/): an image and pdf viewer such as xnview
@@ -83,22 +84,18 @@ Download and run the appropraite exe (probably 64 bit)
 
 ### MacOS
 
+The simplest way to install Tesseract and its own software dependencies on MacOS
+is by using *homebrew*.
+
 #### install homebrew
 https://brew.sh/
-
-Run install script:
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
 
 #### install tesseract
 ```
 brew install tesseract
 ```
 
-#### adding language data
-
-all:
+Optionally, you can install language data:
 ```
 brew install tesseract-lang
 ```
@@ -108,8 +105,8 @@ brew install tesseract-lang
 Use your package manager to install tesseract
 
 ## Tesseract Language Data
+???
 
-Optional
 
 ## Python Environment
 

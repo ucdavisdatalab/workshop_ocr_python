@@ -10,7 +10,6 @@ Description
 
 ## Working with PDFs
 
-Brief paragraph
 
 ### checking for text layers
 pdftotext python package
@@ -19,17 +18,20 @@ pdftotext python package
 
 ## Image preprocessing 
 
-Brief paragraph
 
-### Interactive
+### GUI image editing software
 
-### ImageMagick
+### ImageMagick CLI
 
-#### scaled up if text height too small
+#### upscaling text size
 
 #### high pass filter before binarization
 
 #### rotation
+
+#### orientation
+
+#### borders
 
 #### cropping
 

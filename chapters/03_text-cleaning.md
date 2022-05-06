@@ -1,5 +1,3 @@
 Text Cleaning
 =====================================
 
-Brief Description
-
