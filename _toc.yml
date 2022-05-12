@@ -9,7 +9,5 @@ options:
 
 # Chapters may be written in either Markdown or as Jupyter Notebooks
 chapters:
-  - file: chapters/01_prework
-  - file: chapters/02_pytesseract
-  - file: chapters/03_text-cleaning
-  - file: chapters/04_workflow
+  - file: chapters/01_ocr-basics
+  - file: chapters/02_ocr-improvements
