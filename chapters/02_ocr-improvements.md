@@ -1,5 +1,5 @@
-Prework
-===============
+Improving OCR Results
+=====================
 
 When will it fail. Consider complex layouts
 Consider handwriting
@@ -23,6 +23,8 @@ pdftotext python package
 
 ### ImageMagick CLI
 
+### skewed image
+
 #### upscaling text size
 
 #### high pass filter before binarization
@@ -37,3 +39,15 @@ pdftotext python package
 
 #### filters (contrast, sharpness, brightness)
 
+
+## Text Cleaning
+
+Tyler's readers
+
+## Workflow
+
+- iterative
+- look at data
+- use quantitative validation metrics
+- develop preprocessing strategy
+- develop text cleaning strategy
