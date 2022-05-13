@@ -59,25 +59,65 @@ in python.
 
 ## Prerequisites
 
-Rather than installing python, tesseract, and the other software ourselves, we
-will be using Conda - a software enivornment managmeent tool for data science.
-Using Conda we will be able to install all of the packages necessary.
+For this course you will need [Python](https://www.python.org/),
+[Tesseract](https://tesseract-ocr.github.io/), and several python packages.
+While it is possible to install of these software individually, we *recommend*
+using [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 
-There are two option for installing Conda, 
-Necessary software:
-- [tesseract](https://github.com/tesseract-ocr/tesseract)
-- [python](https://www.python.org/) Need version >=3.7
+**Miniconda** is a minimal version of [Anaconda](https://www.anaconda.com/),
+so, if you already have **Anaconda** installed on your system, you can go ahead
+and continue using that.  Anaconda is a collection of free and open-source
+data science software. Part of Anaconda is [conda](https://docs.conda.io)
+which is a tool for installing and managing software on your system. We will be 
+using conda to manage the installing of the software for this workshop. Both
+Miniconda and Anaconda provide conda. Setup Miniconda by downloading and running 
+the approrpriate installer for your operating system. Navigate to the [download page](https://docs.conda.io/en/latest/miniconda.html) and select the most recent version for your system. 
 
-Useful software:
-- [jupyter-lab](https://jupyterlab.readthedocs.io/en/stable/): Web based development environment
-- [imagemagick](https://imagemagick.org/index.php): Free and open source tool for converting and editing images
-- [pdftotext](https://www.xpdfreader.com/about.html): A tool for extracting text layers from pdfs
-- [XnView](https://www.xnview.com/en/): an image and pdf viewer such as xnview
+In addition, we will be using
+[JupyterLab](https://jupyterlab.readthedocs.io/en/stable/). **JupyterLab** is
+an IDE (integraded development environment) that runs in your browser. In this
+environment we can install packages, run python code interactively, interface
+with the command line tools we will be using, and manage our filesystems.
 
 ### Setup using Conda
 
-#### install miniconda and create environment
+After installing, verify that conda is set up by opening a terminal and running
+conda. On windows this can be done by opening the command prompt as an admin
+user. See [this
+guide](https://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/)
+for details. On MacOS, open the 'Terminal' application, which can be found in
+`Applications -> Utilities -> Terminal.app`. On Linux, open your favorite
+terminal emulator. With the terminal open, type the following command and press
+enter: 
 
-#### install tesseract, pdftotext
-#### install pytesseract, pypdf2, pandas, opencv, jupyter
+``` 
+conda --version 
+```
 
+If this displays a line of information about the version, you are good to go.
+For example on my machine I see `conda 4.12.0`.
+
+With conda installed, we can install the other software for this workshop with
+the following command. Copy and paste this command into your terminal and press
+Enter:
+
+```
+conda install -c conda-forge tesseract pdftotext pytesseract pypydf2 pandas opencv jupyter
+```
+
+::: {note}
+This command will install the list of named software on your system. The
+section `-c conda-forge` specifies to `conda` to use the
+[conda-forge](https://conda-forge.org/docs/user/introduction.html) channel. A
+[channel](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html)
+is a repository containing packages, with conda you can interface with many
+different channels. The 'conda-forge' channel is a community contributed
+channel with many additional packages that aren't provided by Anaconda's
+default channel.
+:::
+
+::: {tip}
+Conda can also be used to manage multiple environments. See [this
+section](https://ucdavisdatalab.github.io/workshop_intermediate_python/chapters/02_reproducible.html#what-s-an-environment)
+of DataLab's intermediate python reader for more information.  
+:::
