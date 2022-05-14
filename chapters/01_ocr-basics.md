@@ -17,29 +17,38 @@ import os
 os.chdir("..")
 ```
 
-OCR with pytesseract
+OCR basics with pytesseract
 ====================
 
 ## Setup
 
-### Importing the necessary libraries
+For this workshop, we will be using a sample set of images prepared to demonstrate
+some key ocr concepts. Download the [zip file]() and extract it to a directory
+where you are keeping your notes. Within that directory, start jupyter-lab
+
+Start by importing the `pytesseract` package into your python session with:
 ```{code-cell}
 import pytesseract
+```
 
+We can verify that tesseract is also installed, as well as which version is being
+used with the `get_tesseract_version` function:
+```
 pytesseract.get_tesseract_version()
 ```
 
-### Loading the images into python
-An image file that has been appropriately prepared.
+Next, lets create names for some of the prepared images that we will refer 
+to throughout this workshop.
 ```{code-cell}
 simple_img = './data/alice_start-gutenberg.jpg'
 fr_img = './data/fr_ocr-wikipedia.png'
 kor_img = './data/kor_ocr-wikipedia.png'
-toc = './data/alic_toc-gutenberg.jpg'
-two_column = './data/two_column-google.png'
+toc_img = './data/alice_toc-gutenberg.jpg'
+two_column_img = './data/two_column-google.png'
 ```
 
-#### supported image formats
+::: {note} 
+**Supported Image Formats:**
 
 pytesseract can operate on any PIL Image, NumPy array or file path of an image
 than can be processed by Tessseract. Tesseract supports most image formats:
@@ -47,7 +56,8 @@ png, jpeg, tiff, bmp, gif.
 
 Notably, pytesseract, and tesseract, don't work on Pdf files. In order to
 perform OCR on a pdf file, you must first convert it to a supported image
-format. See the 'Prework' section for details on how to do this.
+format. 
+:::
 
 ## Usage
 
@@ -82,13 +92,24 @@ The simplest way to get the text from an image with pytesseract is with `pytesse
 pytesseract.image_to_string(simple_img)
 ```	
 
-This returns just a string of all the text detected in the image.
+This returns just a string of all the text detected in the image. Notice that
+the returned text contains alphabetical characters, digits, and escape
+characters such as `\n` which represents a newline. The entire text has been
+concatenated into a single python string, aggregating all the lines, and words
+detected on the page by tesseract.
+
+This is the simplest way to extract the text from an image, when invoked
+without additional parameters, the `image_to_string` function uses the default
+usage options of tesseract. 
 
 ### Language Specification
 
 By default, tesseract uses its english training data. This can lead to very
 poor results if there are non english characters in the image. This is
 especially true if the image contains text that doesn't use a latin alphabet.
+Lets look at an example using an image containing French text, and another image 
+containing Korean text. As before, we will be invoking the function without 
+any additional parameters:
 
 ```{code-cell}
 pytesseract.image_to_string(fr_img)
@@ -98,9 +119,15 @@ pytesseract.image_to_string(fr_img)
 pytesseract.image_to_string(kor_img)
 ```
 
+Notice that these results are not ideal. While the French string is quite
+close, there are a couple of errors with the accents on the characters, and the
+Korean string is pretty much useless.
+
 In order to use ocr on languages other than english we need to download the
-language's associated training data for tesseract. See index for how to do so
-on your system.
+language's associated training data for tesseract. The `tesseract` package we
+installed with conda-forge comes with most of the language training data. Data
+for tesseract can be found at the [tessdata github
+repository](https://github.com/tesseract-ocr/tessdata). 
 
 With pytesseract we can see all the available languages with:
 ```{code-cell}
@@ -108,19 +135,29 @@ With pytesseract we can see all the available languages with:
 pytesseract.get_languages()
 ```
 
-To specify the language to use, pass the name of the language as a parameter to `pytesseract.image_to_string`:
+To specify the language to use, pass the name of the language as a parameter to
+`pytesseract.image_to_string`. Lets rerun the ocr on the korean image, this
+time specifying the appropriate language.
+
 ```{code-cell}
 pytesseract.image_to_string(kor_img, lang='kor')
 ```
 
-multiple languages
+Tesseract supports images that contain multiple languages, we can specify which
+languages to use by separating them with the `+` character in the configuration
+string:
+
 ```{code-cell}
 pytesseract.image_to_string(kor_img, lang='kor+eng')
 ```
 
 ### Engine Selection
 
-Tesseract supports the following options for selecting the engine:
+Tesseract has several **engine modes** that can be used. There are two main
+implementations - the original tesseract engine, and, since Tesseract version
+4, an LSTM based OCR engine. In addition, Tesseract supports using a
+combination of the two. The list of Tesseract's engine modes:
+
 ```
 0 = Original Tesseract only.
 1 = Neural nets LSTM only.
@@ -128,13 +165,27 @@ Tesseract supports the following options for selecting the engine:
 3 = Default, based on what is available.
 ```
 
-I recommend using option 1. The default seems to use option 2. 
+By default Tesseract uses mode 3, which is generally equivalent to option 2.
 
 To set the 'oem' (OCR engine mode) with pytesseract we pass it as the 'config' parameter:
 ```{code-cell}
 custom_oem_psm_config = r'--oem 1'
 pytesseract.image_to_string(simple_img, config=custom_oem_psm_config)
 ```
+
+:::{note}
+The `r` before the string in the above code section tells python to treat the
+string as a sequence of literal characters. This is different behavior from
+just using a regular python string. In python, strings prefixed with the `r`
+are called Raw strings.  
+:::
+
+I recommend using option 1 for the best accuracy, unless you are running into
+specific constraints.  For example, are using an older version of Tesseract
+(less than version 4, that doesn't have the LSTM option), are running on a
+system that doesn't support the LSTM (apparently some android builds), or have
+performance issues.
+
 
 ### Page Layouts
 
@@ -157,9 +208,10 @@ Tesseract supports a variety of common Page Segmentation Modes.
      bypassing hacks that are Tesseract-specific.
 ```
 
-Just like with the OCR engine mode, we set the Page Segmentation Mode as part of the config string.
+Just like with the OCR engine mode, we set the Page Segmentation Mode as part
+of the config string.
 
-#### Auto page segmentation
+#### Automatic page segmentation
 
 By default, tesseract will attempt to automatically detect the text layout. If
 we have prior knowledge its best to specify the layout that is most
@@ -167,17 +219,18 @@ appropriate.
 
 ```{code-cell}
 custom_oem_psm_config = r'--oem 1 --psm 3'
-pytesseract.image_to_string(two_column, config=custom_oem_psm_config)
+pytesseract.image_to_string(two_column_img, config=custom_oem_psm_config)
 ```
 
 Notice that with the default page segmentation mode (fully automatic) it 
 correctly identifies that the lines of text are split between the two columns
 on the page.
 
-If we were to use a psm that 
+#### Other psm options
 
+Automatic page segmentation might not always be the best option. 
 
-#### Uniform block
+There are cases when we want to use a different page segmentation mode. 
 --psm 6
 
 #### Tables

@@ -10,4 +10,4 @@ options:
 # Chapters may be written in either Markdown or as Jupyter Notebooks
 chapters:
   - file: chapters/01_ocr-basics
-  - file: chapters/02_ocr-improvements
+  - file: chapters/02_ocr-extended

@@ -1,4 +1,4 @@
-Improving OCR Results
+OCR Extended
 =====================
 
 When will it fail. Consider complex layouts

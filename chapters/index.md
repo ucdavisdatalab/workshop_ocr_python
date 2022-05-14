@@ -102,7 +102,7 @@ the following command. Copy and paste this command into your terminal and press
 Enter:
 
 ```
-conda install -c conda-forge tesseract pdftotext pytesseract pypydf2 pandas opencv jupyter
+conda install -c conda-forge tesseract poppler pdftotext pytesseract pypydf2 pandas opencv jupyter
 ```
 
 ::: {note}
