@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2. OCR with pytesseract &#8212; Optical Character Recognition (OCR) and Working with Messy Text Data</title>
+    <title>OCR With Pytesseract &#8212; Optical Character Recognition (OCR) and Working with Messy Text Data</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Text Cleaning" href="03_text-cleaning.html" />
-    <link rel="prev" title="1. Prework" href="01_prework.html" />
+    <link rel="next" title="References" href="references.html" />
+    <link rel="prev" title="Introduction" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -94,29 +94,31 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="index.html">
-   Overview
+   Introduction
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="01_prework.html">
-   1. Prework
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   2. OCR with pytesseract
+   OCR With Pytesseract
   </a>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Afterword
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="03_text-cleaning.html">
-   3. Text Cleaning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04_workflow.html">
-   4. Workflow for Text Mining
+  <a class="reference internal" href="references.html">
+   References
   </a>
  </li>
 </ul>
@@ -159,11 +161,11 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         <a class="dropdown-buttons"
-            href="../_sources/chapters/02_pytesseract.ipynb"><button type="button"
+            href="../_sources/chapters/01_ocr-basics.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/chapters/02_pytesseract.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/chapters/01_ocr-basics.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -183,7 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ucdavisdatalab/workshop_ocr_python/issues/new?title=Issue%20on%20page%20%2Fchapters/02_pytesseract.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ucdavisdatalab/workshop_ocr_python/issues/new?title=Issue%20on%20page%20%2Fchapters/01_ocr-basics.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -204,7 +206,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ucdavisdatalab/workshop_ocr_python/master?urlpath=tree/docs/chapters/02_pytesseract.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ucdavisdatalab/workshop_ocr_python/master?urlpath=tree/docs/chapters/01_ocr-basics.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -228,83 +230,59 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#setup">
-   2.1. Setup
+   Setup
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#importing-the-necessary-libraries">
-     2.1.1. Importing the necessary libraries
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#loading-the-images-into-python">
-     2.1.2. Loading the images into python
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#supported-image-formats">
-       2.1.2.1. supported image formats
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#usage">
-   2.2. Usage
+   Usage
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#simplest-usage">
-     2.2.1. Simplest Usage
+     Simplest Usage
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#language-specification">
-     2.2.2. Language Specification
+     Language Specification
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#engine-selection">
-     2.2.3. Engine Selection
+     Engine Selection
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#page-layouts">
-     2.2.4. Page Layouts
+     Page Layouts
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#auto-page-segmentation">
-       2.2.4.1. Auto page segmentation
+      <a class="reference internal nav-link" href="#automatic-page-segmentation">
+       Automatic page segmentation
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#uniform-block">
-       2.2.4.2. Uniform block
+      <a class="reference internal nav-link" href="#other-psm-options">
+       Other psm options
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#tables">
-       2.2.4.3. Tables
+       Tables
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#output-formats">
-     2.2.5. Output Formats
+     Output Formats
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#string">
-       2.2.5.1. string
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#data">
-       2.2.5.2. data
+      <a class="reference internal nav-link" href="#verbose-ocr-data">
+       Verbose OCR Data
       </a>
      </li>
     </ul>
@@ -312,26 +290,58 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#validation">
-   2.3. Validation
+  <a class="reference internal nav-link" href="#assessing-accuracy">
+   Assessing Accuracy
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#confidence-scores">
-     2.3.1. Confidence scores
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summary-statistics">
-     2.3.2. Summary statistics
+     Confidence scores
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#vocabulary">
-     2.3.3. Vocabulary
+     Vocabulary
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#image-preprocessing">
+   Image Preprocessing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#working-with-pdfs">
+     Working with Pdfs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#potential-obstacles">
+     Potential obstacles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gui-image-editing-software">
+     GUI image editing software
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#options-for-programatically-applying-these-fixes">
+     Options for programatically applying these fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#text-cleaning">
+   Text Cleaning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#workflow">
+   Workflow
+  </a>
  </li>
 </ul>
 
@@ -343,7 +353,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>OCR with pytesseract</h1>
+                <h1>OCR With Pytesseract</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -355,83 +365,59 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#setup">
-   2.1. Setup
+   Setup
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#importing-the-necessary-libraries">
-     2.1.1. Importing the necessary libraries
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#loading-the-images-into-python">
-     2.1.2. Loading the images into python
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#supported-image-formats">
-       2.1.2.1. supported image formats
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#usage">
-   2.2. Usage
+   Usage
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#simplest-usage">
-     2.2.1. Simplest Usage
+     Simplest Usage
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#language-specification">
-     2.2.2. Language Specification
+     Language Specification
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#engine-selection">
-     2.2.3. Engine Selection
+     Engine Selection
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#page-layouts">
-     2.2.4. Page Layouts
+     Page Layouts
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#auto-page-segmentation">
-       2.2.4.1. Auto page segmentation
+      <a class="reference internal nav-link" href="#automatic-page-segmentation">
+       Automatic page segmentation
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#uniform-block">
-       2.2.4.2. Uniform block
+      <a class="reference internal nav-link" href="#other-psm-options">
+       Other psm options
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#tables">
-       2.2.4.3. Tables
+       Tables
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#output-formats">
-     2.2.5. Output Formats
+     Output Formats
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#string">
-       2.2.5.1. string
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#data">
-       2.2.5.2. data
+      <a class="reference internal nav-link" href="#verbose-ocr-data">
+       Verbose OCR Data
       </a>
      </li>
     </ul>
@@ -439,26 +425,58 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#validation">
-   2.3. Validation
+  <a class="reference internal nav-link" href="#assessing-accuracy">
+   Assessing Accuracy
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#confidence-scores">
-     2.3.1. Confidence scores
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summary-statistics">
-     2.3.2. Summary statistics
+     Confidence scores
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#vocabulary">
-     2.3.3. Vocabulary
+     Vocabulary
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#image-preprocessing">
+   Image Preprocessing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#working-with-pdfs">
+     Working with Pdfs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#potential-obstacles">
+     Potential obstacles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gui-image-editing-software">
+     GUI image editing software
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#options-for-programatically-applying-these-fixes">
+     Options for programatically applying these fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#text-cleaning">
+   Text Cleaning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#workflow">
+   Workflow
+  </a>
  </li>
 </ul>
 
@@ -470,63 +488,52 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="ocr-with-pytesseract">
-<h1><span class="section-number">2. </span>OCR with pytesseract<a class="headerlink" href="#ocr-with-pytesseract" title="Permalink to this headline">¶</a></h1>
-<p>links:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://cran.r-project.org/web/packages/tesseract/index.html">https://cran.r-project.org/web/packages/tesseract/index.html</a></p></li>
-<li><p><a class="reference external" href="https://tesseract-ocr.github.io/tessdoc/FAQ.html#running-tesseract">https://tesseract-ocr.github.io/tessdoc/FAQ.html#running-tesseract</a></p></li>
-<li><p><a class="reference external" href="https://tesseract-ocr.github.io/tessdoc/ImproveQuality.html#page-segmentation-method">https://tesseract-ocr.github.io/tessdoc/ImproveQuality.html#page-segmentation-method</a></p></li>
-<li><p><a class="reference external" href="https://pyimagesearch.com/2021/08/16/installing-tesseract-pytesseract-and-python-ocr-packages-on-your-system/">https://pyimagesearch.com/2021/08/16/installing-tesseract-pytesseract-and-python-ocr-packages-on-your-system/</a></p></li>
-<li><p><a class="reference external" href="https://guides.nyu.edu/tesseract/usage">https://guides.nyu.edu/tesseract/usage</a></p></li>
-<li><p><a class="reference external" href="https://github.com/madmaze/pytesseract">https://github.com/madmaze/pytesseract</a></p></li>
-<li><p><a class="reference external" href="https://nanonets.com/blog/ocr-with-tesseract/">https://nanonets.com/blog/ocr-with-tesseract/</a></p></li>
-</ul>
+<h1>OCR With Pytesseract<a class="headerlink" href="#ocr-with-pytesseract" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="setup">
-<h2><span class="section-number">2.1. </span>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="importing-the-necessary-libraries">
-<h3><span class="section-number">2.1.1. </span>Importing the necessary libraries<a class="headerlink" href="#importing-the-necessary-libraries" title="Permalink to this headline">¶</a></h3>
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>For this workshop, we will be using a sample set of images prepared to demonstrate
+some key ocr concepts. Download the <span class="xref myst">zip file</span> and extract it to a directory
+where you are keeping your notes.</p>
+<p>Start by importing <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and the <code class="docutils literal notranslate"><span class="pre">pytesseract</span></code> package into your python session with:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytesseract</span>
-
-<span class="n">pytesseract</span><span class="o">.</span><span class="n">get_tesseract_version</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Version(&#39;5.1.0&#39;)&gt;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pytesseract</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>We can verify that tesseract is also installed, as well as which version is being
+used with the <code class="docutils literal notranslate"><span class="pre">get_tesseract_version</span></code> function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytesseract</span><span class="o">.</span><span class="n">get_tesseract_version</span><span class="p">()</span>
+</pre></div>
 </div>
-<div class="section" id="loading-the-images-into-python">
-<h3><span class="section-number">2.1.2. </span>Loading the images into python<a class="headerlink" href="#loading-the-images-into-python" title="Permalink to this headline">¶</a></h3>
-<p>An image file that has been appropriately prepared.</p>
+<p>Next, lets create names for some of the prepared images that we will refer
+to throughout this workshop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simple_img</span> <span class="o">=</span> <span class="s1">&#39;./data/alice_start-gutenberg.jpg&#39;</span>
 <span class="n">fr_img</span> <span class="o">=</span> <span class="s1">&#39;./data/fr_ocr-wikipedia.png&#39;</span>
 <span class="n">kor_img</span> <span class="o">=</span> <span class="s1">&#39;./data/kor_ocr-wikipedia.png&#39;</span>
-<span class="n">toc</span> <span class="o">=</span> <span class="s1">&#39;./data/alic_toc-gutenberg.jpg&#39;</span>
-<span class="n">two_column</span> <span class="o">=</span> <span class="s1">&#39;./data/two_column-google.png&#39;</span>
+<span class="n">toc_img</span> <span class="o">=</span> <span class="s1">&#39;./data/alice_toc-gutenberg.jpg&#39;</span>
+<span class="n">two_column_img</span> <span class="o">=</span> <span class="s1">&#39;./data/two_column-google.png&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="supported-image-formats">
-<h4><span class="section-number">2.1.2.1. </span>supported image formats<a class="headerlink" href="#supported-image-formats" title="Permalink to this headline">¶</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Supported Image Formats:</strong></p>
 <p>pytesseract can operate on any PIL Image, NumPy array or file path of an image
 than can be processed by Tessseract. Tesseract supports most image formats:
 png, jpeg, tiff, bmp, gif.</p>
 <p>Notably, pytesseract, and tesseract, don’t work on Pdf files. In order to
 perform OCR on a pdf file, you must first convert it to a supported image
-format. See the ‘Prework’ section for details on how to do this.</p>
-</div>
+format.</p>
 </div>
 </div>
 <div class="section" id="usage">
-<h2><span class="section-number">2.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <p>In order to maximize the quality of results from OCR with tesseract, its often
 necessary to customize the behavior of the OCR through parameters. With
 tesseract, you can specify one or multiple languages you expect in the
@@ -541,7 +548,7 @@ modes’. This can be very useful when working with software or on systems that
 don’t support the newest engines or for which computational performance is a
 limiting factor. In addition, not all languages have training data for each
 engine mode. Tesseract also supports different behaviors for how it expects the
-text to be layed out on the page. For example it supports options for if the
+text to be laid out on the page. For example it supports options for if the
 image is expected to contain just a single character, a single line, multiple
 columns, and several others.</p>
 <p>In addition to modifying the behavior of the OCR engine, we can configure the
@@ -549,7 +556,7 @@ format of the output. Including how much information we want about the
 extracted text - such as the location on the page and confidence values for the
 extracted text.</p>
 <div class="section" id="simplest-usage">
-<h3><span class="section-number">2.2.1. </span>Simplest Usage<a class="headerlink" href="#simplest-usage" title="Permalink to this headline">¶</a></h3>
+<h3>Simplest Usage<a class="headerlink" href="#simplest-usage" title="Permalink to this headline">¶</a></h3>
 <p>The simplest way to get the text from an image with pytesseract is with <code class="docutils literal notranslate"><span class="pre">pytesseract.image_to_string</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -563,11 +570,23 @@ extracted text.</p>
 </div>
 </div>
 </div>
-<p>This returns just a string of all the text detected in the image.</p>
+<p>This returns just a string of all the text detected in the image. Notice that
+the returned text contains alphabetical characters, digits, and escape
+characters such as <code class="docutils literal notranslate"><span class="pre">\n</span></code> which represents a newline. The entire text has been
+concatenated into a single python string, aggregating all the lines, and words
+detected on the page by tesseract.</p>
+<p>This is the simplest way to extract the text from an image, when invoked
+without additional parameters, the <code class="docutils literal notranslate"><span class="pre">image_to_string</span></code> function uses the default
+usage options of tesseract.</p>
 </div>
 <div class="section" id="language-specification">
-<h3><span class="section-number">2.2.2. </span>Language Specification<a class="headerlink" href="#language-specification" title="Permalink to this headline">¶</a></h3>
-<p>By default, tesseract uses its english training data. This can lead to very poor results if there are non english characters in the image. This is especially true if the image contains text that doesn’t use a latin alphabet.</p>
+<h3>Language Specification<a class="headerlink" href="#language-specification" title="Permalink to this headline">¶</a></h3>
+<p>By default, tesseract uses its english training data. This can lead to very
+poor results if there are non english characters in the image. This is
+especially true if the image contains text that doesn’t use a latin alphabet.
+Lets look at an example using an image containing French text, and another image
+containing Korean text. As before, we will be invoking the function without
+any additional parameters:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">fr_img</span><span class="p">)</span>
@@ -592,7 +611,14 @@ extracted text.</p>
 </div>
 </div>
 </div>
-<p>In order to use ocr on languages other than english we need to download the language’s associated training data for tesseract. See index for how to do so on your system.</p>
+<p>Notice that these results are not ideal. While the French string is quite
+close, there are a couple of errors with the accents on the characters, and the
+Korean string is pretty much useless.</p>
+<p>In order to use ocr on languages other than english we need to download the
+language’s associated training data for tesseract. The <code class="docutils literal notranslate"><span class="pre">tesseract</span></code> package we
+installed with conda-forge comes with most of the language training data. Data
+for tesseract can be found at the <a class="reference external" href="https://github.com/tesseract-ocr/tessdata">tessdata github
+repository</a>.</p>
 <p>With pytesseract we can see all the available languages with:</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
@@ -731,7 +757,9 @@ extracted text.</p>
 </div>
 </div>
 </div>
-<p>To specify the language to use, pass the name of the language as a parameter to <code class="docutils literal notranslate"><span class="pre">pytesseract.image_to_string</span></code>:</p>
+<p>To specify the language to use, pass the name of the language as a parameter to
+<code class="docutils literal notranslate"><span class="pre">pytesseract.image_to_string</span></code>. Lets rerun the ocr on the korean image, this
+time specifying the appropriate language.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">kor_img</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;kor&#39;</span><span class="p">)</span>
@@ -744,7 +772,9 @@ extracted text.</p>
 </div>
 </div>
 </div>
-<p>multiple languages</p>
+<p>Tesseract supports images that contain multiple languages, we can specify which
+languages to use by separating them with the <code class="docutils literal notranslate"><span class="pre">+</span></code> character in the configuration
+string:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">kor_img</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;kor+eng&#39;</span><span class="p">)</span>
@@ -759,15 +789,18 @@ extracted text.</p>
 </div>
 </div>
 <div class="section" id="engine-selection">
-<h3><span class="section-number">2.2.3. </span>Engine Selection<a class="headerlink" href="#engine-selection" title="Permalink to this headline">¶</a></h3>
-<p>Tesseract supports the following options for selecting the engine:</p>
+<h3>Engine Selection<a class="headerlink" href="#engine-selection" title="Permalink to this headline">¶</a></h3>
+<p>Tesseract has several <strong>engine modes</strong> that can be used. There are two main
+implementations - the original tesseract engine, and, since Tesseract version
+4, an LSTM based OCR engine. In addition, Tesseract supports using a
+combination of the two. The list of Tesseract’s engine modes:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="n">Original</span> <span class="n">Tesseract</span> <span class="n">only</span><span class="o">.</span>
 <span class="mi">1</span> <span class="o">=</span> <span class="n">Neural</span> <span class="n">nets</span> <span class="n">LSTM</span> <span class="n">only</span><span class="o">.</span>
 <span class="mi">2</span> <span class="o">=</span> <span class="n">Tesseract</span> <span class="o">+</span> <span class="n">LSTM</span><span class="o">.</span>
 <span class="mi">3</span> <span class="o">=</span> <span class="n">Default</span><span class="p">,</span> <span class="n">based</span> <span class="n">on</span> <span class="n">what</span> <span class="ow">is</span> <span class="n">available</span><span class="o">.</span>
 </pre></div>
 </div>
-<p>I recommend using option 1. The default seems to use option 2.</p>
+<p>By default Tesseract uses mode 3, which is generally equivalent to option 2.</p>
 <p>To set the ‘oem’ (OCR engine mode) with pytesseract we pass it as the ‘config’ parameter:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -782,9 +815,21 @@ extracted text.</p>
 </div>
 </div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">r</span></code> before the string in the above code section tells python to treat the
+string as a sequence of literal characters. This is different behavior from
+just using a regular python string. In python, strings prefixed with the <code class="docutils literal notranslate"><span class="pre">r</span></code>
+are called Raw strings.</p>
+</div>
+<p>I recommend using option 1 for the best accuracy, unless you are running into
+specific constraints.  For example, are using an older version of Tesseract
+(less than version 4, that doesn’t have the LSTM option), are running on a
+system that doesn’t support the LSTM (apparently some android builds), or have
+performance issues.</p>
 </div>
 <div class="section" id="page-layouts">
-<h3><span class="section-number">2.2.4. </span>Page Layouts<a class="headerlink" href="#page-layouts" title="Permalink to this headline">¶</a></h3>
+<h3>Page Layouts<a class="headerlink" href="#page-layouts" title="Permalink to this headline">¶</a></h3>
 <p>Tesseract supports a variety of common Page Segmentation Modes.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="n">Orientation</span> <span class="ow">and</span> <span class="n">script</span> <span class="n">detection</span> <span class="p">(</span><span class="n">OSD</span><span class="p">)</span> <span class="n">only</span><span class="o">.</span>
 <span class="mi">1</span> <span class="o">=</span> <span class="n">Automatic</span> <span class="n">page</span> <span class="n">segmentation</span> <span class="k">with</span> <span class="n">OSD</span><span class="o">.</span>
@@ -803,16 +848,17 @@ extracted text.</p>
      <span class="n">bypassing</span> <span class="n">hacks</span> <span class="n">that</span> <span class="n">are</span> <span class="n">Tesseract</span><span class="o">-</span><span class="n">specific</span><span class="o">.</span>
 </pre></div>
 </div>
-<p>Just like with the OCR engine mode, we set the Page Segmentation Mode as part of the config string.</p>
-<div class="section" id="auto-page-segmentation">
-<h4><span class="section-number">2.2.4.1. </span>Auto page segmentation<a class="headerlink" href="#auto-page-segmentation" title="Permalink to this headline">¶</a></h4>
+<p>Just like with the OCR engine mode, we set the Page Segmentation Mode as part
+of the config string.</p>
+<div class="section" id="automatic-page-segmentation">
+<h4>Automatic page segmentation<a class="headerlink" href="#automatic-page-segmentation" title="Permalink to this headline">¶</a></h4>
 <p>By default, tesseract will attempt to automatically detect the text layout. If
 we have prior knowledge its best to specify the layout that is most
 appropriate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">custom_oem_psm_config</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;--oem 1 --psm 3&#39;</span>
-<span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">two_column</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">custom_oem_psm_config</span><span class="p">)</span>
+<span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">two_column_img</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">custom_oem_psm_config</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -825,45 +871,555 @@ appropriate.</p>
 <p>Notice that with the default page segmentation mode (fully automatic) it
 correctly identifies that the lines of text are split between the two columns
 on the page.</p>
-<p>If we were to use a psm that</p>
 </div>
-<div class="section" id="uniform-block">
-<h4><span class="section-number">2.2.4.2. </span>Uniform block<a class="headerlink" href="#uniform-block" title="Permalink to this headline">¶</a></h4>
-<p>–psm 6</p>
+<div class="section" id="other-psm-options">
+<h4>Other psm options<a class="headerlink" href="#other-psm-options" title="Permalink to this headline">¶</a></h4>
+<p>Automatic page segmentation might not always be the best option. There are
+cases when we want to use a different page segmentation mode. One consideration
+is performance, tesseract will be able to run significantly faster on each
+image with modes that don’t require it to estimate a layout. While this is
+probably not a big consideration when working with a single image, it adds up
+when working over hundreds or thousands! Additionally, the automatic page
+layout detection may give results that don’t match your expectations. A common
+case where its best to explicitly provide a layout option is when working with
+tabular data.</p>
 </div>
 <div class="section" id="tables">
-<h4><span class="section-number">2.2.4.3. </span>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h4>
-<p>–psm 4</p>
+<h4>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h4>
+<p>Lets look at a common failure of automatic page segmentation. This image
+contains the table of contents page, where the chapters are aligned to the left
+and the page numbers to the right. Automatic page segmentation will separate
+this into two distinct regions, grouping all the left aligned text together and
+then all of the right aligned text.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">custom_oem_psm_config</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;--oem 1 --psm 3&#39;</span> 
+<span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">toc_img</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">custom_oem_psm_config</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Contents\n\n8\n\n9\n\nDown the Rabbit-Hole\n\nThe Pool of Tears\n\nA Caucus-Race and a Long Tale\nThe Rabbit Sends in a Little Bill\nAdvice from a Caterpillar\n\nPig and Pepper\n\nA Mad Tea-Party\n\nThe Queen’s Croquet-Ground\n\nThe Mock Turtle’s Story\n\n10 The Lobster Quadrille\n\n11 Who Stole the Tarts?\n\n12 Alice’s Evidence\n\n11\n\n13\n\n19\n\n25\n\n31\n\n37\n\n43\n\n51\n\n59\n\n67\n\n73\n\n81\n\n87\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>If no segmentation mode exactly matches what you are looking for in terms of
+grouping together text on the page, you can manually reconstruct the content
+by using the positional data output by tesseract.</p>
 </div>
 </div>
 <div class="section" id="output-formats">
-<h3><span class="section-number">2.2.5. </span>Output Formats<a class="headerlink" href="#output-formats" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span>
-<span class="n">boxes</span>
-<span class="n">data</span>
-<span class="n">osd</span>
-<span class="n">alto</span> <span class="n">xml</span>
+<h3>Output Formats<a class="headerlink" href="#output-formats" title="Permalink to this headline">¶</a></h3>
+<p>So far, we have just been extracting the text as a python string. However,
+tesseract, and pytesseract, support a variety of output options. Some of these
+options contain more information than can be stored in just a string. This
+means we can use that information to get more use out of our ocr results in
+some cases. Additionally, these output formats can often be interpreted by
+other software, or may be useful in some bigger pipeline such as a web app.</p>
+<p>Pytesseract supports the following output formats which can be specified by the
+function.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Output</p></th>
+<th class="head"><p>Function</p></th>
+<th class="head"><p>Return Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">image_to_string</span></code></p></td>
+<td><p>str</p></td>
+<td><p>the extracted text</p></td>
+</tr>
+<tr class="row-odd"><td><p>osd</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">image_to_osd</span></code></p></td>
+<td><p>str</p></td>
+<td><p>orientation and script as detected by tesseract</p></td>
+</tr>
+<tr class="row-even"><td><p>boxes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">image_to_boxes</span></code></p></td>
+<td><p>str</p></td>
+<td><p>bounding boxes for each character</p></td>
+</tr>
+<tr class="row-odd"><td><p>data</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">image_to_data</span></code></p></td>
+<td><p>str/tsv or df</p></td>
+<td><p>tab separated table with boxes, confidences, line numbers</p></td>
+</tr>
+<tr class="row-even"><td><p>alto xml</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">image_to_alto_xml</span></code></p></td>
+<td><p>str/xml</p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/ALTO_(XML)">ALTO XML</a> - standard for representing OCR and layout data in xml</p></td>
+</tr>
+<tr class="row-odd"><td><p>pdf</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">image_to_pdf_or_hocr</span></code></p></td>
+<td><p>binary/pdf</p></td>
+<td><p>Searchable PDF</p></td>
+</tr>
+<tr class="row-even"><td><p>hocr</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">image_to_pdf_or_hocr</span></code></p></td>
+<td><p>str/hocr</p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/HOCR">hOCR</a> - Another standard for representing OCR data as valid html</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each of these functions accept the <code class="docutils literal notranslate"><span class="pre">lang</span></code> and <code class="docutils literal notranslate"><span class="pre">config</span></code> parameters we have
+already seen. Some have additional parameters, such as <code class="docutils literal notranslate"><span class="pre">image_to_data</span></code> which
+accepts an <code class="docutils literal notranslate"><span class="pre">output_type</span></code> parameter which we will use later.</p>
+<p>In an interactive python session, we can read documentation for functions with
+the <code class="docutils literal notranslate"><span class="pre">help</span></code> function. See DataLab’s <a class="reference external" href="https://ucdavisdatalab.github.io/workshop_python_basics/chapters/01_python-basics.html#getting-help">introductory python reader
+section</a>
+for more information.  In this case, we can see the parameters for the
+different pytesseract functions with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_alto_xml</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="section" id="string">
-<h4><span class="section-number">2.2.5.1. </span>string<a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h4>
 </div>
-<div class="section" id="data">
-<h4><span class="section-number">2.2.5.2. </span>data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h4>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To save these outputs to disk we can use python <a class="reference external" href="https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files">file objects</a>.</p>
+<p>For example when working with pdfs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pdfdata</span> <span class="o">=</span> <span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_pdf_or_hocr</span><span class="p">(</span><span class="s1">&#39;img.png&#39;</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;w+b&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">pdfdata</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Another example saving the output in ALTO xml format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xml</span> <span class="o">=</span> <span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_alto_xml</span><span class="p">(</span><span class="s1">&#39;img.png&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.xml&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">xml</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="verbose-ocr-data">
+<h4>Verbose OCR Data<a class="headerlink" href="#verbose-ocr-data" title="Permalink to this headline">¶</a></h4>
+<p>Pytesseract’s <code class="docutils literal notranslate"><span class="pre">image_to_data</span></code> function provides word level data of the ocr
+output. Parsing this information can be useful for many types of analyses. By
+default, the return value is a string containing a table of tab seperated
+values. However, when <a class="reference external" href="https://pandas.pydata.org/">pandas</a> is loaded, we can
+have <code class="docutils literal notranslate"><span class="pre">image_to_data</span></code> return a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <strong>DataFrame</strong> object by setting the
+<code class="docutils literal notranslate"><span class="pre">output_type</span></code> parameter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_data</span><span class="p">(</span><span class="n">toc_img</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">custom_oem_psm_config</span><span class="p">,</span> <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;data.frame&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>level</th>
+      <th>page_num</th>
+      <th>block_num</th>
+      <th>par_num</th>
+      <th>line_num</th>
+      <th>word_num</th>
+      <th>left</th>
+      <th>top</th>
+      <th>width</th>
+      <th>height</th>
+      <th>conf</th>
+      <th>text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2480</td>
+      <td>3507</td>
+      <td>-1.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>376</td>
+      <td>824</td>
+      <td>444</td>
+      <td>74</td>
+      <td>-1.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>376</td>
+      <td>824</td>
+      <td>444</td>
+      <td>74</td>
+      <td>-1.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>376</td>
+      <td>824</td>
+      <td>444</td>
+      <td>74</td>
+      <td>-1.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>376</td>
+      <td>824</td>
+      <td>444</td>
+      <td>74</td>
+      <td>96.769348</td>
+      <td>Contents</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pandas Dataframes are incredibly powerful for data analysis. For an introduction
+to Pandas and dataframes see DataLab’s Python Basics <a class="reference external" href="https://ucdavisdatalab.github.io/workshop_python_basics/chapters/02_pandas-basics.html#dataframes">reader</a>.</p>
+</div>
+<p>Here is a summary of each column in this table. Adapted from <a class="reference external" href="https://blog.tomrochette.com/tesseract-tsv-format">this blog post</a></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>level</p></td>
+<td><p>1: page, 2: block, 3: paragraph, 4: line, 5: word</p></td>
+</tr>
+<tr class="row-odd"><td><p>page_num</p></td>
+<td><p>starts at 1, indicates page, only useful for multi-page documents</p></td>
+</tr>
+<tr class="row-even"><td><p>block_num</p></td>
+<td><p>starts at 0, pages &gt; blocks &gt; paragraphs &gt; lines &gt; words</p></td>
+</tr>
+<tr class="row-odd"><td><p>par_num</p></td>
+<td><p>starts at 0</p></td>
+</tr>
+<tr class="row-even"><td><p>line_num</p></td>
+<td><p>starts at 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>word_num</p></td>
+<td><p>starts at 0</p></td>
+</tr>
+<tr class="row-even"><td><p>left</p></td>
+<td><p>x coordinate in pixels, top left corner of the bounding box, from top left corner of image</p></td>
+</tr>
+<tr class="row-odd"><td><p>top</p></td>
+<td><p>y coordinate in pixels, top left corner of the bounding box, from top left corner of image</p></td>
+</tr>
+<tr class="row-even"><td><p>width</p></td>
+<td><p>width in pixels of bounding box</p></td>
+</tr>
+<tr class="row-odd"><td><p>height</p></td>
+<td><p>height in pixels of bounding box</p></td>
+</tr>
+<tr class="row-even"><td><p>conf</p></td>
+<td><p>confidence value for the word, 0-100, -1 for any row that isn’t a word</p></td>
+</tr>
+<tr class="row-odd"><td><p>text</p></td>
+<td><p>detected word, NaN or empty for any row that isn’t a word</p></td>
+</tr>
+</tbody>
+</table>
+<p>A <strong>bounding box</strong> refers to a rectangular region within the image. Bounding
+boxes can be used to represent a page, a block, a paragraph, a line, a word or
+even a character.</p>
+<p>Analysis of this data can be very useful for projects that rely on the <strong>layout</strong>
+of the documents. One use of this data is to quickly classify types of pages
+within your document set, for example, you could develop heuristics for
+detecting if a page contains a table of contents and filter those out. You
+could use this data for extracting Titles or Headers other sequences of text
+that have differing text heights. Additionally, if you only care about the text
+within a certain region of the page, for example the main article body of a
+journal article, you could filter out the rows that aren’t within that region.</p>
+<p>In addition to information about the layout, this table contains the
+<strong>confidence values</strong> associated with each word of detected text. These scores
+range from 0-100 and reflect the engine’s confidence in the detected word.</p>
 </div>
 </div>
 </div>
-<div class="section" id="validation">
-<h2><span class="section-number">2.3. </span>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="assessing-accuracy">
+<h2>Assessing Accuracy<a class="headerlink" href="#assessing-accuracy" title="Permalink to this headline">¶</a></h2>
+<p>OCR is a very challenging problem, and while current tools are very advanced and built using the latest technologies, they are imperfect.</p>
 <div class="section" id="confidence-scores">
-<h3><span class="section-number">2.3.1. </span>Confidence scores<a class="headerlink" href="#confidence-scores" title="Permalink to this headline">¶</a></h3>
+<h3>Confidence scores<a class="headerlink" href="#confidence-scores" title="Permalink to this headline">¶</a></h3>
+<p>One quantitative way of evaluating the OCR’s performance is by analyzing the <strong>confidence values</strong> returned from <code class="docutils literal notranslate"><span class="pre">pytesseract.image_to_data</span></code>. With Pandas we can compute some summary statistics on the values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;conf&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
 </div>
-<div class="section" id="summary-statistics">
-<h3><span class="section-number">2.3.2. </span>Summary statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    65.000000
+mean     95.051439
+std       2.124442
+min      88.821213
+25%      93.293381
+50%      96.125114
+75%      96.529099
+max      96.911034
+Name: conf, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also sort the words by their confidence scores</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;conf&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[[</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;conf&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>text</th>
+      <th>conf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8</th>
+      <td>8</td>
+      <td>96.911034</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>9</td>
+      <td>96.907730</td>
+    </tr>
+    <tr>
+      <th>128</th>
+      <td>67</td>
+      <td>96.851425</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>of</td>
+      <td>96.804993</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>Story</td>
+      <td>96.780762</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>Turtle’s</td>
+      <td>91.321640</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>Tea-Party</td>
+      <td>90.653679</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>Quadrille</td>
+      <td>90.321297</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>Alice’s</td>
+      <td>89.817886</td>
+    </tr>
+    <tr>
+      <th>132</th>
+      <td>73</td>
+      <td>88.821213</td>
+    </tr>
+  </tbody>
+</table>
+<p>65 rows × 2 columns</p>
+</div></div></div>
+</div>
 </div>
 <div class="section" id="vocabulary">
-<h3><span class="section-number">2.3.3. </span>Vocabulary<a class="headerlink" href="#vocabulary" title="Permalink to this headline">¶</a></h3>
+<h3>Vocabulary<a class="headerlink" href="#vocabulary" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The               5
+a                 3
+11                2
+A                 2
+the               2
+and               2
+12                1
+Tarts?            1
+Stole             1
+Contents          1
+Who               1
+Evidence          1
+Quadrille         1
+Lobster           1
+10                1
+Story             1
+Alice’s           1
+25                1
+13                1
+19                1
+Mock              1
+31                1
+37                1
+43                1
+51                1
+59                1
+67                1
+73                1
+81                1
+Turtle’s          1
+Tea-Party         1
+Croquet-Ground    1
+Queen’s           1
+9                 1
+Down              1
+Rabbit-Hole       1
+Pool              1
+of                1
+Tears             1
+Caucus-Race       1
+Long              1
+Tale              1
+Rabbit            1
+Sends             1
+in                1
+Little            1
+Bill              1
+Advice            1
+from              1
+Caterpillar       1
+Pig               1
+Pepper            1
+Mad               1
+8                 1
+87                1
+Name: text, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="image-preprocessing">
+<h2>Image Preprocessing<a class="headerlink" href="#image-preprocessing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="working-with-pdfs">
+<h3>Working with Pdfs<a class="headerlink" href="#working-with-pdfs" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="potential-obstacles">
+<h3>Potential obstacles<a class="headerlink" href="#potential-obstacles" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>image quality too low (300 dpi)</p></li>
+<li><p>skewed image</p></li>
+<li><p>text too small</p></li>
+<li><p>high pass filter before binarization</p></li>
+<li><p>rotation</p></li>
+<li><p>borders</p></li>
+<li><p>extraneous details on page</p></li>
+<li><p>weird font</p></li>
+<li><p>noise in paper or image</p></li>
+</ul>
+</div>
+<div class="section" id="gui-image-editing-software">
+<h3>GUI image editing software<a class="headerlink" href="#gui-image-editing-software" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="options-for-programatically-applying-these-fixes">
+<h3>Options for programatically applying these fixes<a class="headerlink" href="#options-for-programatically-applying-these-fixes" title="Permalink to this headline">¶</a></h3>
+<p>imagemagick</p>
+<p>opencv python</p>
+</div>
+</div>
+<div class="section" id="text-cleaning">
+<h2>Text Cleaning<a class="headerlink" href="#text-cleaning" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>iterative</p></li>
+<li><p>look at data</p></li>
+<li><p>use quantitative validation metrics</p></li>
+<li><p>develop preprocessing strategy</p></li>
+<li><p>develop text cleaning strategy</p></li>
+</ul>
 </div>
 </div>
 
@@ -892,17 +1448,17 @@ on the page.</p>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="01_prework.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">1. </span>Prework</p>
+            <p class="prev-next-title">Introduction</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="03_text-cleaning.html" title="next page">
+    <a class='right-next' id="next-link" href="references.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Text Cleaning</p>
+        <p class="prev-next-title">References</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
