@@ -5,9 +5,13 @@ format: jb-book
 root: chapters/index
 
 options:
-  numbered: true
+  numbered: false
 
 # Chapters may be written in either Markdown or as Jupyter Notebooks
-chapters:
-  - file: chapters/01_ocr-basics
-  - file: chapters/02_ocr-extended
+parts:
+  - caption: Notes
+    chapters:
+      - file: chapters/01_ocr-basics
+  - caption: Afterword
+    chapters:
+      - file: chapters/references

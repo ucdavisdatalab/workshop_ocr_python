@@ -1,12 +1,12 @@
-Overview
+Introduction
 ========
 
 :::{admonition} Learning Objectives
 - TODO
 :::
 
-This workshop is designed to introduce the steps involved in performing Optical
-Character Recognition with Python. Included in this workshop is a description
+This workshop is designed to introduce the steps involved in performing **Optical
+Character Recognition** with Python. Included in this workshop is a description
 of common image preprocessing strategies for improving the quality of the OCR
 output, a walk-through of tesseract usage through pytesseract, strategies for
 quantifying OCR quality, ways to clean the text outputs, and a discussion on
@@ -24,7 +24,7 @@ and a comprehension of some of the steps involved in a potential research
 workflow that involves tesseract which includes image pre-processing and text
 cleaning.
 
-OCR allows us to convert images of text documents into machine encoded text.
+OCR allows us to convert images of text documents into **machine encoded text**.
 There are many reasons to use OCR for research. Often times the most relevant
 documents to your research query are not available in a digitized form. Or,
 there does exist a scanned version of the document online, but that digital
@@ -37,7 +37,8 @@ data of the text on the page, that is lost in purely machine-encoded text
 layer. For example, if you want to extract all the footnotes from an academic
 paper, you may use OCR and leverage the positional data OCR returns.
 
-For this workshop we will be using Tesseract. Tesseract is free and open
+For this workshop we will be using
+[Tesseract](https://tesseract-ocr.github.io/).  Tesseract is free and open
 source. It is developed by Google and has many independent contributors. The
 most recent release, version 5.1.0 was released on March 1, 2022. Tesseract is
 a command line tool as well as an OCR library. Tesseract can run on Windows,
@@ -47,14 +48,15 @@ popular which makes it relatively easy to find resources online, such as guides
 and stack overflow posts. In addition, there are many third party tools that
 interface with Tesseract including GUIs.
 
-While Tesseract is a command line tool, we will be running it through a Python
-wrapper called 'pytesseract' for this workshop. This means that we will be
-writing Python code to run Tesseract behind the scenes. A reason for running
-Tesseract through python, instead of the command line, is it can make for more
-reproducible workflows. This way all of the steps will be self documented
-within your source code as well as its easier to connect the OCR step with the
-other steps in the process - preprocessing, cleaning, which will also be done
-in python.
+While Tesseract is a command line tool, we will be running it through a
+[Python](https://www.python.org/) wrapper called
+[pytesseract](https://pypi.org/project/pytesseract/) for this workshop. This
+means that we will be writing **Python** code to run Tesseract behind the
+scenes. A reason for running Tesseract through python, instead of the command
+line, is it can make for more reproducible workflows. This way all of the steps
+will be self documented within your source code as well as its easier to
+connect the OCR step with the other steps in the process - preprocessing,
+cleaning, which will also be done in python.
 
 
 ## Prerequisites
@@ -82,13 +84,11 @@ with the command line tools we will be using, and manage our filesystems.
 ### Setup using Conda
 
 After installing, verify that conda is set up by opening a terminal and running
-conda. On windows this can be done by opening the command prompt as an admin
-user. See [this
-guide](https://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/)
-for details. On MacOS, open the 'Terminal' application, which can be found in
-`Applications -> Utilities -> Terminal.app`. On Linux, open your favorite
-terminal emulator. With the terminal open, type the following command and press
-enter: 
+conda. On windows this can be done by searching for 'Anaconda Prompt' in your
+start menu.  for details. On MacOS, open the 'Terminal' application, which can
+be found in `Applications -> Utilities -> Terminal.app`. On Linux, open your
+favorite terminal emulator. With the terminal open, type the following command
+and press enter: 
 
 ``` 
 conda --version 
@@ -102,7 +102,7 @@ the following command. Copy and paste this command into your terminal and press
 Enter:
 
 ```
-conda install -c conda-forge tesseract poppler pdftotext pytesseract pypydf2 pandas opencv jupyter
+conda install -c conda-forge tesseract poppler pdftotext pytesseract pypydf2 pandas jupyter jupyterlab
 ```
 
 ::: {note}
