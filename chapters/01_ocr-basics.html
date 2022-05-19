@@ -234,8 +234,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#usage">
-   Usage
+  <a class="reference internal nav-link" href="#pytesseract-usage">
+   Pytesseract Usage
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -307,40 +307,32 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#image-preprocessing">
-   Image Preprocessing
+  <a class="reference internal nav-link" href="#image-considerations">
+   Image Considerations
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#working-with-pdfs">
      Working with Pdfs
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#potential-obstacles">
-     Potential obstacles
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gui-image-editing-software">
-     GUI image editing software
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#options-for-programatically-applying-these-fixes">
-     Options for programatically applying these fixes
-    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#extracting-existing-text-layers">
+       extracting existing text layers
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#converting-pdfs-to-an-image-format">
+       converting pdfs to an image format
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#text-cleaning">
    Text Cleaning
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#workflow">
-   Workflow
   </a>
  </li>
 </ul>
@@ -369,8 +361,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#usage">
-   Usage
+  <a class="reference internal nav-link" href="#pytesseract-usage">
+   Pytesseract Usage
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -442,40 +434,32 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#image-preprocessing">
-   Image Preprocessing
+  <a class="reference internal nav-link" href="#image-considerations">
+   Image Considerations
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#working-with-pdfs">
      Working with Pdfs
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#potential-obstacles">
-     Potential obstacles
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gui-image-editing-software">
-     GUI image editing software
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#options-for-programatically-applying-these-fixes">
-     Options for programatically applying these fixes
-    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#extracting-existing-text-layers">
+       extracting existing text layers
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#converting-pdfs-to-an-image-format">
+       converting pdfs to an image format
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#text-cleaning">
    Text Cleaning
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#workflow">
-   Workflow
   </a>
  </li>
 </ul>
@@ -492,7 +476,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <p>For this workshop, we will be using a sample set of images prepared to demonstrate
-some key ocr concepts. Download the <span class="xref myst">zip file</span> and extract it to a directory
+some key ocr concepts. Download this <a class="reference external" href="https://github.com/ucdavisdatalab/workshop_ocr_python/raw/main/data.zip">zipped folder of images</a> and extract it to a directory
 where you are keeping your notes.</p>
 <p>Start by importing <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and the <code class="docutils literal notranslate"><span class="pre">pytesseract</span></code> package into your python session with:</p>
 <div class="cell docutils container">
@@ -532,8 +516,8 @@ perform OCR on a pdf file, you must first convert it to a supported image
 format.</p>
 </div>
 </div>
-<div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pytesseract-usage">
+<h2>Pytesseract Usage<a class="headerlink" href="#pytesseract-usage" title="Permalink to this headline">¶</a></h2>
 <p>In order to maximize the quality of results from OCR with tesseract, its often
 necessary to customize the behavior of the OCR through parameters. With
 tesseract, you can specify one or multiple languages you expect in the
@@ -606,7 +590,7 @@ any additional parameters:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Bet xt ol}\n\n‘lvls, $2] 20) sahara\n\n‘BB BAt 24\\(Optical character recognition; OCR) Ateto| M74L} 7| A= last SLO] Bars o|o|x| A.\nMAS 85810} 7/717} AS + Qk= VAS Wetst= AOIch.\n\n0[0|4| Atos YS + We SM] Mt BSS ARE BS 7st BABS S92] BACs Helse 2zE\n\nAOSM Ubos OCRO|A}T SOY, OCRE 2ISAlSOILt 7124] Al2H(machine vision) 2] SP HOFS AlAHE| A\nch\n&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Bet xt ol}\n\n \n\n‘lvls, $2] 20) sahara\n\n‘BB BAt 24\\(Optical character recognition; OCR) Ateto| M74L} 7| A= last SLO] Bars o|o|x| A.\nMAS 85810} 7/717} AS + Qk= VAS Wetst= AOIch.\n\n0[0|4| Atos YS + We SM] Mt BSS ARE BS 7st BABS S92] BACs Helse 2zE\n\nAOSM Ubos OCRO|A}T SOY, OCRE 2ISAlSOILt 7124] Al2H(machine vision) 2] SP HOFS AlAHE| A\nch\n&#39;
 </pre></div>
 </div>
 </div>
@@ -727,7 +711,6 @@ repository</a>.</p>
  &#39;slk&#39;,
  &#39;slv&#39;,
  &#39;snd&#39;,
- &#39;snum&#39;,
  &#39;spa&#39;,
  &#39;spa_old&#39;,
  &#39;sqi&#39;,
@@ -767,7 +750,7 @@ time specifying the appropriate language.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;광학 문자 인식\n\n위키백과, 우리 모두의 백과사전.\n\n광학 문자 인식(20068! 08180 『600901007; 0ㄷㅠ83:은 사람이 쓰거나 기계로 인쇄한 문자의 영상을 이미지 스\n캐너로 획득하여 기계가 읽을 수 있는 문자로 변환하는 것이다.\n\n이미지 스캔으로 얻을 수 있는 문서의 활자 영상을 컴퓨터가 편집 가능한 문자코드 등의 형식으로 변환하는 소프트\n\n웨어로써 일반적으로 0ㄷ이라고 하며, 0은 인공지능이나 기계 시각(07106 1510/의 연구분야로 시작되었\n다\n&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;광학 문자 인식\n\n \n\n위키백과, 우리 모두의 백과사전.\n\n광학 문자 인식(20068! 08180 『600901007; 0ㄷㅠ83:은 사람이 쓰거나 기계로 인쇄한 문자의 영상을 이미지 스\n캐너로 획득하여 기계가 읽을 수 있는 문자로 변환하는 것이다.\n\n이미지 스캔으로 얻을 수 있는 문서의 활자 영상을 컴퓨터가 편집 가능한 문자코드 등의 형식으로 변환하는 소프트\n\n웨어로써 일반적으로 0ㄷ이라고 하며, 0은 인공지능이나 기계 시각(07106 1510/의 연구분야로 시작되었\n다\n&#39;
 </pre></div>
 </div>
 </div>
@@ -782,7 +765,7 @@ string:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;광학 문자 인식\n\n위키백과, 우리 모두의 백과사전.\n\n광학 문자 인식(20068! character recognition; OCR) 사람이 쓰거나 기계로 인쇄한 문자의 영상을 이미지 스\n캐너로 획득하여 기계가 읽을 수 있는 문자로 변환하는 것이다.\n\n이미지 스캔으로 얻을 수 있는 문서의 활자 영상을 컴퓨터가 편집 가능한 문자코드 등의 형식으로 변환하는 소프트\n\n웨어로써 일반적으로 0ㄷ이라고 하며, OCRE 인공지능이나 기계 Al2H(machine 1510/의 연구분야로 시작되었\n다\n&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;광학 문자 인식\n\n \n\n위키백과, 우리 모두의 백과사전.\n\n광학 문자 인식(20068! character recognition; OCR) 사람이 쓰거나 기계로 인쇄한 문자의 영상을 이미지 스\n캐너로 획득하여 기계가 읽을 수 있는 문자로 변환하는 것이다.\n\n이미지 스캔으로 얻을 수 있는 문서의 활자 영상을 컴퓨터가 편집 가능한 문자코드 등의 형식으로 변환하는 소프트\n\n웨어로써 일반적으로 0ㄷ이라고 하며, OCRE 인공지능이나 기계 Al2H(machine 1510/의 연구분야로 시작되었\n다\n&#39;
 </pre></div>
 </div>
 </div>
@@ -1380,46 +1363,108 @@ Name: text, dtype: int64
 </div>
 </div>
 </div>
-<div class="section" id="image-preprocessing">
-<h2>Image Preprocessing<a class="headerlink" href="#image-preprocessing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="image-considerations">
+<h2>Image Considerations<a class="headerlink" href="#image-considerations" title="Permalink to this headline">¶</a></h2>
+<p>The quality of OCR outputs is heavily dependent on the quality of the input
+image. There are many potentially problematic features that can lead to very
+poor OCR results. Many of these problems can be programmatically resolved
+before passing the image to the OCR engine through image preprocessing. There
+are some instances where no amount of preprocessing will be sufficient to get
+high quality OCR results. In order to maximize the quality of OCR results from
+tesseract it is important to consider a few things. Many of these things are
+quite intuitive if we consider how ‘tesseract’ is preforming the task of OCR.
+So far we have worked with images that are very well suited to OCR. They are
+well suited for several reasons: its easy to distinguish text from the
+background, they are properly aligned, they contain nothing but text, they are
+high quality (measured in dots per inch), and they contain standard fonts.</p>
+<p>So what can we do with images that don’t look like the images we have seen so
+far? It is a good idea to start by randomly selecting some of your images and
+getting the OCR data. It is also good to consider what you are seeking to get
+out of OCRing your images. Do you really need perfect quality transcription?
+How many images are you hoping to process? How much manual intervention can you
+apply?</p>
+<p>Tesseract provides detailed
+<a class="reference external" href="https://tesseract-ocr.github.io/tessdoc/ImproveQuality.html">documentation</a> on
+ways to improve accuracy. Many of these ways involve preprocessing the images.
+You can do all of this with whatever graphical user interface image editor you
+prefer. This may be your best option if you are working with relatively few
+documents. If you are working with lots of documents, then you can develop a
+preprocessing scheme with the graphical interface and work your way to
+replicating the workflow programmatically using
+<a class="reference external" href="https://imagemagick.org/index.php">imagemagick</a> or
+<a class="reference external" href="https://opencv.org/">opencv</a>.</p>
 <div class="section" id="working-with-pdfs">
 <h3>Working with Pdfs<a class="headerlink" href="#working-with-pdfs" title="Permalink to this headline">¶</a></h3>
+<p>Tesseract does not operate on Pdfs. To run OCR with tesseract on a Pdf, you
+must first convert the pages of the pdf to an image file format.</p>
+<div class="section" id="extracting-existing-text-layers">
+<h4>extracting existing text layers<a class="headerlink" href="#extracting-existing-text-layers" title="Permalink to this headline">¶</a></h4>
+<p>Often times Pdfs will have a text layer already embedded. In which case it may
+not be required to run OCR. We can extract text layers, if they exist, with
+<a class="reference external" href="https://pypdf2.readthedocs.io/en/latest/user/extract-text.html">PyPDF2</a> library.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyPDF2</span> <span class="kn">import</span> <span class="n">PdfFileReader</span>
+
+<span class="n">reader</span> <span class="o">=</span> <span class="n">PdfFileReader</span><span class="p">(</span><span class="s1">&#39;./data/two_column-google.pdf&#39;</span><span class="p">)</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">pages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">page</span><span class="o">.</span><span class="n">extractText</span><span class="p">()</span>
+</pre></div>
 </div>
-<div class="section" id="potential-obstacles">
-<h3>Potential obstacles<a class="headerlink" href="#potential-obstacles" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>image quality too low (300 dpi)</p></li>
-<li><p>skewed image</p></li>
-<li><p>text too small</p></li>
-<li><p>high pass filter before binarization</p></li>
-<li><p>rotation</p></li>
-<li><p>borders</p></li>
-<li><p>extraneous details on page</p></li>
-<li><p>weird font</p></li>
-<li><p>noise in paper or image</p></li>
-</ul>
 </div>
-<div class="section" id="gui-image-editing-software">
-<h3>GUI image editing software<a class="headerlink" href="#gui-image-editing-software" title="Permalink to this headline">¶</a></h3>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PdfReadWarning: Xref table not zero-indexed. ID numbers for objects will be corrected. [_reader.py:1065]
+</pre></div>
 </div>
-<div class="section" id="options-for-programatically-applying-these-fixes">
-<h3>Options for programatically applying these fixes<a class="headerlink" href="#options-for-programatically-applying-these-fixes" title="Permalink to this headline">¶</a></h3>
-<p>imagemagick</p>
-<p>opencv python</p>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;An Overview of the Tesseract OCR Engi ne \n \n \nRay Smith  \nGoogle Inc. \ntheraysmith@gmail.com \n \nAbst ra ct  \n \nThe Tesseract OCR engine, as was the HP Research \nPrototype in the UNLV Fourth Annual Test of OCR \n\nA ccuracy[1], is described in a comprehensive \n\noverview. Emphasis is placed on aspects that are novel \n\nor at least unusual in an OCR engine, including in \n\nparticular the line finding, features/classification \n\nmethods, and the adaptive classifier. \n  \n \n1. Introduction ŒMotivation and History \n \nTesseract is an open-source OCR engine that was \ndeveloped at HP between 1984 and 1994. Like a super-\n\nnova, it appear ed fr om nowher e for  the 1995 UNLV \n\nAnnual Test of OCR Accuracy [1], shone brightly with \n\nits results, and then vanished back under the same \n\ncloak of secrecy under which it had been developed. \n\nNow for the first time, deta ils of the architecture and \nalg orith ms can  be revealed . \nTesser act began as a PhD r esear ch pr oject [2] in HP \nLabs, Bristol, and gain ed momen tum as a possible \n\nsoftware and/or hardware add-on for HP™s line of \n\nflatbed scanners. Motivation was provided by the fact \n\nthat the commercial OCR engines of the day were in \n\ntheir infancy, and failed miserably on anything but the \n\nbest quality print. \nAfter a joint project between HP Labs Bristol, and \nHP™s scann er division  in  Colorado, Tesseract had a \n\nsignificant lea d in a ccura cy over the commercia l \n\nengines, but did not become a product. The next stage \nof its development was back in HP Labs Bristol as an \ninvestigation of OCR for compression. Work \n\nconcentrated more on improving rejection efficiency \n\nthan on base-level accuracy. At the end of this project, \n\nat the end of 1994, development ceased entirely. The \n\nengine was sent to UNLV for  the 1995 Annual Test of \n\nOCR Ac cura cy[1], where it proved its worth a gainst \n\nthe commercial engines of the time. In late 2005, HP \n\nreleased Tesseract for open source. It is now available \n\nat http://code.google.com/p/tesseract-ocr. \n\n \n2. Archi tecture \n \nSince HP had independently-developed page layout \nanalysis technology that was used in products, (and \n\ntherefore not released for open-source) Tesseract never \n\nneeded its own page layout analysis. Tesseract \n\ntherefore assumes that its input is a binary image with \n\noptional polygonal text regions defined. \nProcessing follows a traditional step-by-step \npipeline, but some of the stages wer e unusual in their \n\nda y, a nd possibly remain so even now. The first step is \n\na connected component analysis in which outlines of \n\nthe components are stored. This was a computationally \nexpensive design decision at the time, but had a \nsignificant advantage: by inspection of the nesting of \n\noutlines, and the number of child and grandchild \n\noutlines,  it is simple to detect inverse text and \n\nrecognize it as easily as black-on-white text. Tesseract \n\nwas probably the first OCR engine able to handle \n\nwhite-on-black text so trivially. At this stage, outlines \n\nare gathered together, purely by nesting,  into \nBlobs\n. \nBlobs are organized into text lines, and the lines and \nr egions ar e analyzed for  fixed pitch or  pr oportional \n\ntext. Text lines are broken into words differently \n\naccor ding to the kind of character spacing. Fixed pitch \ntext is chopped immediately by character cells. \nProportional text is broken into words using definite \n\nspaces and fuzzy spaces. \nRe c ognition then proceeds a s a two-pa ss process. In \nthe first pass, an attempt is made to recognize each \n\nword in turn. Each word that is satisfactory is passed to \n\nan ada ptive cla ssifier a s training data. The a da ptive  \n\nclassifier then gets a chance to more accurately \n\nrecognize text lower down the page. \nS ince the a da ptive cla ssifier ma y ha ve lea rned \nsomething useful too late to make a contribution near \nthe top of the page, a second pass is run over the page, \nin which words that were not recognized well enough \n\nare recognized again. \nA final phase resolves fuzzy spaces, and checks \nalternative hypotheses for the x-height to locate small-\n\ncap text. \n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="converting-pdfs-to-an-image-format">
+<h4>converting pdfs to an image format<a class="headerlink" href="#converting-pdfs-to-an-image-format" title="Permalink to this headline">¶</a></h4>
+<p>Using the <a class="reference external" href="https://github.com/Belval/pdf2image">pdf2image</a>
+package we can convert pdfs to image formats:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pdf2image</span>
+<span class="n">images</span> <span class="o">=</span> <span class="n">pdf2image</span><span class="o">.</span><span class="n">convert_from_path</span><span class="p">(</span><span class="s1">&#39;./data/two_column-google.pdf&#39;</span><span class="p">,</span> <span class="n">output_folder</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;jpeg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="text-cleaning">
 <h2>Text Cleaning<a class="headerlink" href="#text-cleaning" title="Permalink to this headline">¶</a></h2>
+<p>Depending on what analysis you want to do with your text, its helpful to know
+some common text cleaning methods and ways of implementing them in python.
+Preprocessing text for computational analysis is a huge topic that won’t be
+covered here. You can read more about text processing in python in DataLab’s
+<a class="reference external" href="https://ucdavisdatalab.github.io/workshop_getting_started_with_textual_data/">getting started with textual
+data</a>
+series. As well as the upcoming <a class="reference external" href="https://ucdavisdatalab.github.io/workshop_nlp_with_python/">Natural Language Processing
+Series</a></p>
+<p>Here is some sample code demonstrating common preprocessing techniques applied
+to the output of the OCR data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">stop_words</span> <span class="kn">import</span> <span class="n">get_stop_words</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">words</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">words</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;[^\w\s]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">words</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;\d+&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">stopwords</span> <span class="o">=</span> <span class="n">get_stop_words</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">)</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="p">]</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span><span class="p">]</span>
+</pre></div>
 </div>
-<div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>iterative</p></li>
-<li><p>look at data</p></li>
-<li><p>use quantitative validation metrics</p></li>
-<li><p>develop preprocessing strategy</p></li>
-<li><p>develop text cleaning strategy</p></li>
-</ul>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FutureWarning: The default value of regex will change from True to False in a future version. [1984863378.py:4]
+FutureWarning: The default value of regex will change from True to False in a future version. [1984863378.py:5]
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 

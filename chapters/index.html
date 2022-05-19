@@ -264,8 +264,14 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
+<p>By the end of this session you will be able to:</p>
 <ul class="simple">
-<li><p>TODO</p></li>
+<li><p>explain what Optical Character Recognition (OCR) is and when to use it</p></li>
+<li><p>use Tesseract OCR software through a python wrapper called pytesseract</p></li>
+<li><p>understand the main ways of configuring tesseract including - engine selection, language, layouts</p></li>
+<li><p>extract and parse layout information including bounding boxes from images</p></li>
+<li><p>identify common problems in images that may lead to poor quality OCR</p></li>
+<li><p>implement some common text processing techniques in python</p></li>
 </ul>
 </div>
 <p>This workshop is designed to introduce the steps involved in performing <strong>Optical
@@ -352,7 +358,7 @@ For example on my machine I see <code class="docutils literal notranslate"><span
 <p>With conda installed, we can install the other software for this workshop with
 the following command. Copy and paste this command into your terminal and press
 Enter:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">tesseract</span> <span class="n">poppler</span> <span class="n">pdftotext</span> <span class="n">pytesseract</span> <span class="n">pypydf2</span> <span class="n">pandas</span> <span class="n">jupyter</span> <span class="n">jupyterlab</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">tesseract</span> <span class="n">poppler</span> <span class="n">pytesseract</span> <span class="n">PyPDF2</span> <span class="n">stop</span><span class="o">-</span><span class="n">words</span> <span class="n">pdf2image</span> <span class="n">pandas</span> <span class="n">jupyter</span> <span class="n">jupyterlab</span>
 </pre></div>
 </div>
 <div class="admonition note">

@@ -2,7 +2,14 @@ Introduction
 ========
 
 :::{admonition} Learning Objectives
-- TODO
+By the end of this session you will be able to:
+
+- explain what Optical Character Recognition (OCR) is and when to use it
+- use Tesseract OCR software through a python wrapper called pytesseract
+- understand the main ways of configuring tesseract including - engine selection, language, layouts
+- extract and parse layout information including bounding boxes from images
+- identify common problems in images that may lead to poor quality OCR 
+- implement some common text processing techniques in python
 :::
 
 This workshop is designed to introduce the steps involved in performing **Optical
@@ -102,7 +109,7 @@ the following command. Copy and paste this command into your terminal and press
 Enter:
 
 ```
-conda install -c conda-forge tesseract poppler pdftotext pytesseract pypydf2 pandas jupyter jupyterlab
+conda install -c conda-forge tesseract poppler pytesseract PyPDF2 stop-words pdf2image pandas jupyter jupyterlab
 ```
 
 ::: {note}
