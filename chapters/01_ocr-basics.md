@@ -23,7 +23,7 @@ OCR With Pytesseract
 ## Setup
 
 For this workshop, we will be using a sample set of images prepared to demonstrate
-some key ocr concepts. Download the [zip file]() and extract it to a directory
+some key ocr concepts. Download this [zipped folder of images](https://github.com/ucdavisdatalab/workshop_ocr_python/raw/main/data.zip) and extract it to a directory
 where you are keeping your notes. 
 
 Start by importing `pandas` and the `pytesseract` package into your python session with:
@@ -60,7 +60,7 @@ perform OCR on a pdf file, you must first convert it to a supported image
 format. 
 :::
 
-## Usage
+## Pytesseract Usage
 
 In order to maximize the quality of results from OCR with tesseract, its often
 necessary to customize the behavior of the OCR through parameters. With
@@ -390,35 +390,90 @@ data.sort_values('conf', ascending=False)[["text", "conf"]].loc[data["text"].not
 data["text"].value_counts()
 ```
 
-## Image Preprocessing
+## Image Considerations
+
+The quality of OCR outputs is heavily dependent on the quality of the input
+image. There are many potentially problematic features that can lead to very
+poor OCR results. Many of these problems can be programmatically resolved
+before passing the image to the OCR engine through image preprocessing. There
+are some instances where no amount of preprocessing will be sufficient to get
+high quality OCR results. In order to maximize the quality of OCR results from
+tesseract it is important to consider a few things. Many of these things are
+quite intuitive if we consider how ‘tesseract’ is preforming the task of OCR.
+So far we have worked with images that are very well suited to OCR. They are
+well suited for several reasons: its easy to distinguish text from the
+background, they are properly aligned, they contain nothing but text, they are
+high quality (measured in dots per inch), and they contain standard fonts. 
+
+So what can we do with images that don’t look like the images we have seen so
+far? It is a good idea to start by randomly selecting some of your images and
+getting the OCR data. It is also good to consider what you are seeking to get
+out of OCRing your images. Do you really need perfect quality transcription?
+How many images are you hoping to process? How much manual intervention can you
+apply?
+
+Tesseract provides detailed
+[documentation](https://tesseract-ocr.github.io/tessdoc/ImproveQuality.html) on
+ways to improve accuracy. Many of these ways involve preprocessing the images.
+You can do all of this with whatever graphical user interface image editor you
+prefer. This may be your best option if you are working with relatively few
+documents. If you are working with lots of documents, then you can develop a
+preprocessing scheme with the graphical interface and work your way to
+replicating the workflow programmatically using
+[imagemagick](https://imagemagick.org/index.php) or
+[opencv](https://opencv.org/).
 
 ### Working with Pdfs
 
-### Potential obstacles
-- image quality too low (300 dpi)
-- skewed image
-- text too small
-- high pass filter before binarization
-- rotation
-- borders
-- extraneous details on page
-- weird font
-- noise in paper or image
+Tesseract does not operate on Pdfs. To run OCR with tesseract on a Pdf, you
+must first convert the pages of the pdf to an image file format. 
 
-### GUI image editing software
 
-### Options for programatically applying these fixes
+#### extracting existing text layers
 
-imagemagick
+Often times Pdfs will have a text layer already embedded. In which case it may
+not be required to run OCR. We can extract text layers, if they exist, with
+[PyPDF2](https://pypdf2.readthedocs.io/en/latest/user/extract-text.html) library.
 
-opencv python
+```{code-cell}
+from PyPDF2 import PdfFileReader
+
+reader = PdfFileReader('./data/two_column-google.pdf')
+page = reader.pages[0]
+page.extractText()
+```
+
+#### converting pdfs to an image format
+
+Using the [pdf2image](https://github.com/Belval/pdf2image)
+package we can convert pdfs to image formats:
+```
+import pdf2image
+images = pdf2image.convert_from_path('./data/two_column-google.pdf', output_folder='.', dpi=300, fmt='jpeg')
+```
 
 ## Text Cleaning
 
-## Workflow
+Depending on what analysis you want to do with your text, its helpful to know
+some common text cleaning methods and ways of implementing them in python.
+Preprocessing text for computational analysis is a huge topic that won't be
+covered here. You can read more about text processing in python in DataLab's
+[getting started with textual
+data](https://ucdavisdatalab.github.io/workshop_getting_started_with_textual_data/)
+series. As well as the upcoming [Natural Language Processing
+Series](https://ucdavisdatalab.github.io/workshop_nlp_with_python/)
 
-- iterative
-- look at data
-- use quantitative validation metrics
-- develop preprocessing strategy
-- develop text cleaning strategy
+
+Here is some sample code demonstrating common preprocessing techniques applied
+to the output of the OCR data:
+
+```{code-cell}
+from stop_words import get_stop_words
+words = data["text"].loc[data["text"].notna()]
+words = words.str.lower()
+words = words.str.replace('[^\w\s]', '')
+words = words.str.replace('\d+', '')
+stopwords = get_stop_words('en')
+words = [w for w in words if w not in stopwords]
+words = [w for w in words if w]
+```
